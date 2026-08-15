@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Álbum – XV Años Liliana</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/><style>
+:root {
+--sage:       #8a9e87;
+--sage-dark:  #5e7259;
+--sage-deep:  #3d5040;
+--sage-light: #c2cfc0;
+--sage-pale:  #e8ede7;
+--sage-mist:  #f3f5f2;
+--gold:       #b09060;
+--cream-dark: #ece9e2;
+--text-dark:  #2e3a2c;
+--text-mid:   #546050;
+--text-light: #849080;
+--white:      #fff;
+--shadow:     0 8px 40px rgba(60,80,60,0.13);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(160deg,var(--sage-mist) 0%,var(--cream-dark) 60%,var(--sage-pale) 100%);min-height:100vh;font-family:'Montserrat',sans-serif;color:var(--text-dark);max-width:500px;margin:0 auto}
+/* HEADER */
+.header{text-align:center;padding:2.5rem 1.5rem 1.2rem}
+.header-ornament{font-size:1.1rem;color:var(--sage-light);letter-spacing:.6rem;margin-bottom:.4rem}
+.header-title{font-family:'Great Vibes',cursive;font-size:3rem;color:var(--sage-deep);line-height:1}
+.header-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--text-mid);margin-top:.3rem}
+.header-tag{display:inline-block;margin-top:.7rem;background:var(--sage-deep);color:var(--sage-pale);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem 1rem;border-radius:20px}
+/* NOMBRE */
+.name-section{margin:0 1rem 1rem;background:rgba(255,255,255,.82);border:1px solid var(--sage-light);border-radius:16px;padding:1rem 1.2rem}
+.name-label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem}
+.name-row{display:flex;gap:.5rem}
+.name-input{flex:1;border:1.5px solid var(--sage-light);border-radius:10px;padding:.6rem .9rem;font-family:'Montserrat',sans-serif;font-size:.85rem;color:var(--text-dark);background:var(--white);outline:none;transition:border-color .2s}
+.name-input:focus{border-color:var(--sage-dark)}
+.name-btn{background:var(--sage-dark);color:var(--sage-pale);border:none;border-radius:10px;padding:.6rem 1rem;font-size:.8rem;font-family:'Montserrat',sans-serif;cursor:pointer;transition:background .2s}
+.name-btn:hover{background:var(--sage-deep)}
+.name-ok{font-size:.7rem;color:var(--sage-dark);margin-top:.35rem;opacity:0;transition:opacity .3s}
+.name-ok.show{opacity:1}
+/* UPLOAD */
+.upload-zone{margin:0 1rem 1rem}
+.drop-area{border:2px dashed var(--sage-light);border-radius:16px;background:rgba(255,255,255,.72);padding:1.8rem 1rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;position:relative}
+.drop-area.drag-over{border-color:var(--sage-dark);background:var(--sage-pale)}
+.drop-icon{font-size:2.2rem;color:var(--sage-light);margin-bottom:.5rem}
+.drop-main{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--text-mid)}
+.drop-sub{font-size:.68rem;color:var(--text-light);margin-top:.25rem}
+.file-input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+/* PREVIEWS */
+.preview-strip{display:flex;gap:.5rem;overflow-x:auto;padding:.5rem 0 .2rem;scrollbar-width:none}
+.preview-strip::-webkit-scrollbar{display:none}
+.pw{position:relative;flex-shrink:0}
+.pw img{width:70px;height:70px;border-radius:10px;object-fit:cover;border:2px solid var(--sage-light);display:block}
+.pw-video{width:70px;height:70px;border-radius:10px;background:var(--sage-pale);border:2px solid var(--sage-light);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.6rem;color:var(--text-light)}
+.pw-video span{font-size:1.3rem;color:var(--sage)}
+.pw-rm{position:absolute;top:-5px;right:-5px;width:18px;height:18px;background:var(--sage-deep);color:white;border:none;border-radius:50%;font-size:.65rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+/* BTN */
+.btn-upload{width:100%;margin-top:.7rem;background:linear-gradient(135deg,var(--sage-dark),var(--sage-deep));color:var(--sage-pale);border:none;border-radius:12px;padding:.85rem;font-family:'Montserrat',sans-serif;font-size:.85rem;cursor:pointer;letter-spacing:.05em;box-shadow:0 4px 16px rgba(60,80,60,.25);transition:transform .15s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.btn-upload:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-upload:not(:disabled):hover{transform:translateY(-2px)}
+/* PROGRESO */
+.prog-wrap{margin-top:.6rem;display:none}
+.prog-wrap.show{display:block}
+.prog-bar{width:100%;height:6px;background:var(--sage-pale);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--sage),var(--gold));border-radius:3px;transition:width .4s ease;width:0%}
+.prog-label{font-size:.68rem;color:var(--text-light);margin-top:.3rem;text-align:center}
+/* FILTROS */
+.filters{display:flex;gap:.4rem;padding:0 1rem .8rem;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex-shrink:0;background:rgba(255,255,255,.7);border:1.5px solid var(--sage-light);border-radius:20px;padding:.35rem .9rem;font-size:.7rem;font-family:'Montserrat',sans-serif;color:var(--text-mid);cursor:pointer;transition:all .2s;white-space:nowrap}
+.fbtn.active{background:var(--sage-dark);border-color:var(--sage-dark);color:var(--sage-pale)}
+/* GALERÍA */
+.gallery-header{display:flex;align-items:center;justify-content:space-between;padding:0 1rem .6rem}
+.gallery-title{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--sage-dark)}
+.gallery-count{font-size:.68rem;color:var(--text-light);letter-spacing:.1em}
+.gallery-grid{columns:2;column-gap:.5rem;padding:0 1rem 2rem}
+.gi{break-inside:avoid;margin-bottom:.5rem;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;border:1.5px solid var(--sage-light);animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.gi img{width:100%;display:block;object-fit:cover}
+.gi-video{width:100%;background:var(--sage-pale);min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;padding:1.5rem 0}
+.gi-play{width:42px;height:42px;background:var(--sage-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem}
+.gi-meta{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(40,55,38,.85) 0%,transparent 100%);padding:1.4rem .5rem .4rem;opacity:0;transition:opacity .25s}
+.gi:hover .gi-meta{opacity:1}
+.gi-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;color:var(--sage-pale)}
+.gi-date{font-size:.6rem;color:var(--sage-light)}
+/* EMPTY */
+.empty{text-align:center;padding:3rem 2rem;display:none}
+.empty.show{display:block}
+.empty-icon{font-size:2.8rem;color:var(--sage-light);margin-bottom:.8rem}
+.empty-title{font-family:'Great Vibes',cursive;font-size:1.9rem;color:var(--sage);margin-bottom:.4rem}
+.empty-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--text-light)}
+/* LIGHTBOX */
+.lb{display:none;position:fixed;inset:0;background:rgba(25,35,22,.93);z-index:1000;align-items:center;justify-content:center;padding:1rem}
+.lb.open{display:flex}
+.lb-inner{position:relative;max-width:100%;animation:lbIn .3s ease}
+@keyframes lbIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+.lb-inner img{max-width:min(440px,92vw);max-height:80vh;border-radius:12px;object-fit:contain;display:block}
+.lb-inner video{max-width:min(440px,92vw);max-height:80vh;border-radius:12px}
+.lb-info{text-align:center;margin-top:.7rem}
+.lb-name{font-family:'Great Vibes',cursive;font-size:1.4rem;color:var(--sage-pale)}
+.lb-date{font-size:.65rem;color:var(--sage-light);margin-top:.15rem}
+.lb-close{position:fixed;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:white;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:white;width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-prev{left:.4rem}
+.lb-next{right:.4rem}
+/* LOADING */
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(40,55,38,.5);z-index:500;align-items:center;justify-content:center;flex-direction:column;gap:1rem}
+.loading-overlay.show{display:flex}
+.spinner{width:44px;height:44px;border:3px solid var(--sage-light);border-top-color:var(--sage-pale);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--sage-pale);font-size:1rem}
+/* TOAST */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--sage-deep);color:var(--sage-pale);border-radius:20px;padding:.55rem 1.3rem;font-size:.78rem;z-index:2000;transition:transform .4s cubic-bezier(.22,1,.36,1);white-space:nowrap;box-shadow:0 4px 20px rgba(30,40,28,.3)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.back-link{display:block;text-align:center;padding:1rem;font-size:.72rem;letter-spacing:.1em;color:var(--text-light);text-decoration:none;text-transform:uppercase}
+.back-link:hover{color:var(--sage-dark)}
+.deco{display:flex;align-items:center;gap:.6rem;padding:0 1rem 1rem}
+.deco::before,.deco::after{content:'';flex:1;height:1px;background:var(--sage-light)}
+.deco span{font-size:.72rem;color:var(--sage-light);letter-spacing:.2em}
+/* RELOAD BTN */
+.reload-btn{display:flex;align-items:center;justify-content:center;gap:.4rem;margin:0 1rem .8rem;padding:.55rem;background:rgba(255,255,255,.6);border:1px solid var(--sage-light);border-radius:10px;font-size:.72rem;color:var(--text-mid);cursor:pointer;font-family:'Montserrat',sans-serif;transition:background .2s}
+.reload-btn:hover{background:var(--sage-pale)}
+</style></head><body><div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div><p class="loading-text" id="loadingText">Subiendo tu recuerdo...</p></div><div class="header"><p class="header-ornament">✦ ◈ ✦</p><h1 class="header-title">Álbum de Recuerdos</h1><p class="header-sub">XV Años · Liliana · 18 de Julio 2026</p><span class="header-tag">Álbum compartido</span></div><div class="name-section"><p class="name-label">¿Cómo te llamas?</p><div class="name-row"><input type="text" id="guestName" class="name-input" placeholder="Tu nombre" maxlength="40"/><button class="name-btn" onclick="saveName()">Guardar</button></div><p class="name-ok" id="nameOk">✦ Nombre guardado</p></div><div class="upload-zone"><div class="drop-area" id="dropArea"><input type="file" class="file-input" id="fileInput"
+accept="image/*,video/mp4,video/quicktime,video/webm" multiple/><div class="drop-icon">◈</div><p class="drop-main">Sube tus fotos o videos</p><p class="drop-sub">Toca aquí · JPG, PNG, MP4, MOV · Máx 100 MB c/u</p></div><div class="preview-strip" id="previewStrip"></div><button class="btn-upload" id="uploadBtn" onclick="uploadFiles()" disabled>
+✦ Compartir al álbum
+</button><div class="prog-wrap" id="progWrap"><div class="prog-bar"><div class="prog-fill" id="progFill"></div></div><p class="prog-label" id="progLabel">Preparando...</p></div></div><div class="deco"><span>✦</span></div><div class="gallery-header"><h2 class="gallery-title">Momentos</h2><span class="gallery-count" id="galleryCount">cargando...</span></div><div class="filters"><button class="fbtn active" onclick="setFilter('all',this)">Todos</button><button class="fbtn" onclick="setFilter('image',this)">Fotos</button><button class="fbtn" onclick="setFilter('video',this)">Videos</button></div><button class="reload-btn" onclick="loadAlbum()">↻ Actualizar álbum</button><div id="gallery" class="gallery-grid"></div><div class="empty" id="emptyState"><div class="empty-icon">✦</div><p class="empty-title">Aún no hay recuerdos</p><p class="empty-text">¡Sé el primero en compartir un momento!</p></div><a href="index.html" class="back-link">← Volver a la invitación</a><div class="lb" id="lb"><button class="lb-close" onclick="closeLb()">✕</button><button class="lb-nav lb-prev" onclick="navLb(-1)">‹</button><div class="lb-inner" id="lbInner"></div><button class="lb-nav lb-next" onclick="navLb(1)">›</button></div><div class="toast" id="toast"></div><script>;const CLOUD='doadjjvqj';const PRESET='xv_album';const FOLDER='xv_liliana';const UPLOAD_URL=`https://api.cloudinary.com/v1_1/${CLOUD}/auto/upload`;let allItems=[];let pendingFiles=[];let currentFilter='all';let lbIndex=0;function loadName() {const s=localStorage.getItem('xv_guest_lili');if (s) document.getElementById('guestName').value=s;}function saveName() {const v=document.getElementById('guestName').value.trim();if (!v) return;localStorage.setItem('xv_guest_lili',v);const ok=document.getElementById('nameOk');ok.classList.add('show');setTimeout(()=>ok.classList.remove('show'),2200);}function getGuest() {return document.getElementById('guestName').value.trim();||localStorage.getItem('xv_guest_lili');||'Invitado';}const dropArea=document.getElementById('dropArea');dropArea.addEventListener('dragover',e=>{e.preventDefault();dropArea.classList.add('drag-over');});dropArea.addEventListener('dragleave',()=>dropArea.classList.remove('drag-over'));dropArea.addEventListener('drop',e=>{e.preventDefault();dropArea.classList.remove('drag-over');handleFiles([...e.dataTransfer.files]);});document.getElementById('fileInput').addEventListener('change',e=>{handleFiles([...e.target.files]);e.target.value='';});function handleFiles(files) {const valid=files.filter(f=>{const okType=f.type.startsWith('image/')||f.type.startsWith('video/');const okSize=f.size/1024/1024<=100;if (!okType) showToast('Solo fotos y videos, por favor');if (!okSize) showToast(`"${f.name}" supera 100 MB`);return okType&&okSize;});pendingFiles=[...pendingFiles,...valid];renderPreviews();document.getElementById('uploadBtn').disabled=pendingFiles.length===0;}function renderPreviews() {const strip=document.getElementById('previewStrip');strip.innerHTML='';pendingFiles.forEach((f,i)=>{const wrap=document.createElement('div');wrap.className='pw';if (f.type.startsWith('image/')) {const img=document.createElement('img');img.src=URL.createObjectURL(f);wrap.appendChild(img);} else {const vd=document.createElement('div');vd.className='pw-video';vd.innerHTML=`<span>▶</span><small>${f.name.slice(0,10)}</small>`;wrap.appendChild(vd);}const rm=document.createElement('button');rm.className='pw-rm';rm.textContent='✕';rm.onclick=()=>{pendingFiles.splice(i,1);renderPreviews();document.getElementById('uploadBtn').disabled=pendingFiles.length===0;};wrap.appendChild(rm);strip.appendChild(wrap);});}async function uploadFiles() {if (!pendingFiles.length) return;const guest=getGuest();const btn=document.getElementById('uploadBtn');const prog=document.getElementById('progWrap');const fill=document.getElementById('progFill');const lbl=document.getElementById('progLabel');const ov=document.getElementById('loadingOverlay');btn.disabled=true;prog.classList.add('show');ov.classList.add('show');const total=pendingFiles.length;let ok=0;for (let i=0;i<total;i++) {const file=pendingFiles[i];document.getElementById('loadingText').textContent=`Subiendo ${i+1} de ${total}…`;lbl.textContent=`Archivo ${i+1} de ${total}…`;fill.style.width=((i/total)*85)+'%';try {const fd=new FormData();fd.append('file',file);fd.append('upload_preset',PRESET);fd.append('folder',FOLDER);fd.append('tags',`${FOLDER}`);fd.append('context',`guest=${guest}|upload_date=${new Date().toLocaleDateString('es-MX')}`);const res=await fetch(UPLOAD_URL,{method:'POST',body:fd});const data=await res.json();if (data.secure_url) {allItems.unshift({url:data.secure_url,type:data.resource_type,name:guest,date:new Date().toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'}),public_id:data.public_id;});ok++;} else {console.error('Cloudinary error:',data);showToast(`Error al subir "${file.name}": ${data.error?.message || 'desconocido'}`);}} catch(e) {showToast(`Error de red: "${file.name}"`);}}fill.style.width='100%';lbl.textContent='¡Listo!';ov.classList.remove('show');setTimeout(()=>{prog.classList.remove('show');fill.style.width='0%';},1000);pendingFiles=[];renderPreviews();btn.disabled=true;renderGallery();if (ok>0) showToast(`✦ ${ok > 1 ? ok+' recuerdos compartidos' : '1 recuerdo compartido'}`);}async function loadAlbum() {document.getElementById('galleryCount').textContent='cargando...';try {const url=`https://res.cloudinary.com/${CLOUD}/image/list/${FOLDER}.json`;const res=await fetch(url+'?t='+Date.now());if (!res.ok) throw new Error(res.status);const data=await res.json();const fromCloud=(data.resources||[]).map(r=>{let guest='Invitado',date='';try {if (r.context&&r.context.custom) {if (r.context.custom.guest) guest=r.context.custom.guest;if (r.context.custom.upload_date) date=r.context.custom.upload_date;}} catch(e){}return {url:`https://res.cloudinary.com/${CLOUD}/image/upload/${r.public_id}`,type:'image',name:guest,date:date,public_id:r.public_id;};});const cloudIds=new Set(fromCloud.map(i=>i.public_id));const sessionOnly=allItems.filter(i=>!cloudIds.has(i.public_id));allItems=[...sessionOnly,...fromCloud];} catch(e) {}renderGallery();}function setFilter(type,btn) {currentFilter=type;document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderGallery();}function filtered() {return currentFilter==='all'?allItems:allItems.filter(m=>m.type===currentFilter);}function renderGallery() {const grid=document.getElementById('gallery');const empty=document.getElementById('emptyState');const count=document.getElementById('galleryCount');const items=filtered();count.textContent=`${items.length} recuerdo${items.length !== 1 ? 's' : ''}`;if (!items.length) {grid.innerHTML='';empty.classList.add('show');return;}empty.classList.remove('show');grid.innerHTML=items.map((m,i)=>{if (m.type==='video') {const vUrl=m.url.replace('/image/upload/','/video/upload/');return`<div class="gi" onclick="openLb(${i})"><div class="gi-video"><div class="gi-play">▶</div><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.75rem;color:var(--text-mid);margin-top:.3rem">${m.name}</p></div><div class="gi-meta"><p class="gi-name">${m.name}</p><p class="gi-date">${m.date}</p></div></div>`;}const thumb=m.url.replace('/upload/','/upload/w_300,c_fill,q_auto,f_auto/');return`<div class="gi" onclick="openLb(${i})"><img src="${thumb}" alt="foto de ${m.name}" loading="lazy"/><div class="gi-meta"><p class="gi-name">${m.name}</p><p class="gi-date">${m.date}</p></div></div>`;}).join('');}function openLb(i) {lbIndex=i;showLbItem();document.getElementById('lb').classList.add('open');}function closeLb() {document.getElementById('lb').classList.remove('open');document.getElementById('lbInner').innerHTML='';}function navLb(dir) {const it=filtered();lbIndex=(lbIndex+dir+it.length)%it.length;showLbItem();}function showLbItem() {const m=filtered()[lbIndex];if (!m) return;const inner=document.getElementById('lbInner');if (m.type==='video') {const vUrl=m.url.replace('/image/upload/','/video/upload/');inner.innerHTML=`<video controls autoplay style="max-width:min(440px,92vw);max-height:80vh;border-radius:12px"><source src="${vUrl}"/></video><div class="lb-info"><p class="lb-name">${m.name}</p><p class="lb-date">${m.date}</p></div>`;} else {inner.innerHTML=`<img src="${m.url}" alt="foto"/><div class="lb-info"><p class="lb-name">${m.name}</p><p class="lb-date">${m.date}</p></div>`;}}document.getElementById('lb').addEventListener('click',function(e) {if (e.target===this) closeLb();});document.addEventListener('keydown',e=>{if (e.key==='Escape') closeLb();if (e.key==='ArrowLeft') navLb(-1);if (e.key==='ArrowRight') navLb(1);});let toastTimer;function showToast(msg) {const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3200);}loadName();loadAlbum();</script></body></html>

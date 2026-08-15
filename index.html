@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Bautizo – Ismael Valentín</title><link rel="stylesheet" href="style.min.css"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Pacifico&family=Nunito:wght@300;400;600;700;800&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/></head><body>
+
+<div id="envelope-screen">
+  <div class="env-scene">
+    <div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div>
+    
+    <div class="envelope-wrap" id="envelopeWrap">
+      <div class="envelope" id="envelope">
+        <div class="env-back-flap"></div>
+        <p class="env-top-text">Tienes un mensaje especial ✨</p>
+        <div class="env-body">
+          
+          <div class="env-letter" id="envLetter">
+            <div class="letter-content">
+              <p class="lc-pre">Una invitación muy especial para</p>
+              <p class="lc-name">Ismael</p>
+              <p class="lc-xv">Santo Bautizo</p>
+              <div class="lc-ornament">🕊️</div>
+              <p class="lc-date">19 · Diciembre · 2026</p>
+            </div>
+          </div>
+          <div class="env-front-flap" id="envFlap"><div class="flap-diamond"></div></div>
+        </div>
+      </div>
+      <div class="wax-seal" id="waxSeal"><span>IV</span></div>
+    </div>
+    <p class="env-hint" id="envHint">✦ Toca para abrir ✦</p>
+  </div>
+</div>
+
+<div id="invitation" class="hidden">
+  <div class="petal" style="--d:3s;--x:10%;--s:14px"></div>
+  <div class="petal" style="--d:5s;--x:33%;--s:10px"></div>
+  <div class="petal" style="--d:4s;--x:68%;--s:17px"></div>
+  <div class="petal" style="--d:6s;--x:84%;--s:12px"></div>
+  <div class="petal" style="--d:3.5s;--x:52%;--s:15px"></div>
+
+  <section class="section cover">
+    <div class="floral-top"></div>
+    <div class="cover-inner reveal">
+      <p class="pre-title">Con gran alegría te invitamos al</p>
+      <h1 class="mis-anos">Santo <span>Bautizo</span> de</h1>
+      <div class="crown">🕊️</div>
+      <h2 class="nombre">Ismael</h2>
+<!--
+      <div class="foto-portada">
+        <div class="foto-frame">
+          <div class="foto-placeholder">
+            <span class="ph-icon">◈</span>
+            <small><img src="img/foto01.jpeg" alt="Ismael Valentín" class="foto-img"></small>
+          </div>
+        </div>
+      </div>
+-->
+      <blockquote class="frase">
+        "Dejad que los niños vengan a mí, y no se lo impidáis, porque de los que son como ellos es el reino de Dios."<br>— Marcos 10:14
+      </blockquote>
+
+      <div class="floral-divider"></div>
+
+      <div class="music-player">
+        <p class="music-label">♪ Dale Play</p>
+        <audio id="audio" src="audio/song.mp3" loop></audio>
+        <div class="controls"><button class="ctrl-btn" onclick="togglePlay()">▶</button></div>
+        <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+      </div>
+
+      <div class="floral-divider"></div>
+
+      <p class="section-label">Hoy damos gracias a Dios por el regalo de la vida y por permitirnos compartir este momento tan especial en la fe de nuestro hijo. Con todo nuestro amor, los invitamos a acompañarnos en el día en que Ismael recibirá el sacramento del bautismo.</p>
+    </div>
+  </section>
+
+  <section class="section parents">
+    <div class="floral-divider"></div>
+    <div class="reveal">
+      <p class="section-label2">Con el corazón lleno de fe y gratitud, te esperamos para que nos acompañes en este día tan especial junto a:</p>
+      <br>
+      <h3 class="subtitle-script">Mis Padres</h3>
+     <p class="names-couple">◈ Gustavo Bandi Ramirez</p><br>
+     <p class="names-couple">◈ Citlali Mendoza Bautista</p>
+      <h3 class="subtitle-script" style="margin-top:1.5rem">Mis Padrinos</h3>
+      <p class="names-couple">◈ Alan Yamir Campistrano Mejía</p><br>
+      <p class="names-couple">◈ Maria Esther Mendoza Bautista</p>
+
+      <div class="date-box">
+        <p class="a-festejar">A celebrar mi</p>
+        <p class="xv-grande">Bautizo</p>
+        <div class="fecha-elegante">
+          <span class="mes-script">Diciembre</span>
+          <span class="dia-num">19</span>
+          <span class="anio">2026</span>
+        </div>
+        <p class="dia-semana">Sábado</p>
+      </div>
+
+      <div class="countdown-box">
+        <p class="faltan-label">Faltan</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-unit"><span id="cd-days">00</span><small>Días</small></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span id="cd-hours">00</span><small>Horas</small></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span id="cd-mins">00</span><small>Minutos</small></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span id="cd-secs">00</span><small>Segundos</small></div>
+        </div>
+        <p class="gran-dia hidden" id="granDia">¡Hoy es el gran día! ✦</p>
+      </div>
+
+      <div class="calendar-mini">
+        <p class="cal-mes">Diciembre</p>
+        <table class="cal-table">
+          <thead><tr><th>L</th><th>M</th><th>Mi</th><th>J</th><th>V</th><th>S</th><th>D</th></tr></thead>
+          <tbody id="cal-body"></tbody>
+        </table>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bautizo+de+Ismael+Valent%C3%ADn&dates=20251219T170000Z/20251220T010000Z&details=Sacramento+del+Bautismo.+%E2%9B%AA+Misa%3A+Cerrito+de+Santa+Cruz%2C+Ayotuxco.+%F0%9F%8E%89+Recepci%C3%B3n%3A+C.+de+los+Santos+21%2C+Barrio+de+Canales&location=Cerrito+de+Santa+Cruz%2C+Ayotuxco%2C+Estado+de+M%C3%A9xico&sf=true&output=xml" target="_blank" class="btn-agendar">◈ Añadir al calendario</a>
+      </div>
+    </div>
+    <div class="floral-divider"></div>
+  </section>
+
+  <section class="section events">
+  <div class="reveal">
+  <div class="event-card">
+    <div class="event-icon">⛪</div>
+    <h3 class="script-heading">Misa de Bautizo</h3>
+    <p class="event-time">01:00 PM</p>
+    <p class="event-place">Santuario Del Divino Rostro "El cerrito"</p>
+    <p class="event-address">Santa Cruz Ayotuzco, Méx.</p>
+    <a class="btn-location" href="https://maps.app.goo.gl/p1TLXevx1Jot5nGLA" target="_blank">◈ Ver Ubicación</a>
+    <div class="map-embed">
+      <iframe title="Mapa Cerrito de Santa Cruz" loading="lazy"
+        src="https://www.google.com/maps/embed?pb=!4v1786824044498!6m8!1m7!1sUrroi57PGOU51mF63qgk7w!2m2!1d19.38683237060314!2d-99.35877953526195!3f29.073538103068813!4f4.661940204585051!5f0.7820865974627469"
+        width="100%" height="190" style="border:0;border-radius:12px;display:block;"></iframe>
+    </div>
+  </div>
+</div>
+<!-- Esto es un comentario, no se muestra en la página 
+      <div class="foto-evento reveal">
+        <div class="foto-placeholder tall">
+          <div class="carrusel-wrap">
+            <div class="carrusel-track" id="carruselTrack">
+              <div class="carrusel-slide"><img src="img/1.jpeg" alt="Ismael Valentín"></div>
+              <div class="carrusel-slide"><img src="img/2.jpeg" alt="Ismael Valentín"></div>
+              <div class="carrusel-slide"><img src="img/3.jpeg" alt="Ismael Valentín"></div>
+              <div class="carrusel-slide"><img src="img/4.jpeg" alt="Ismael Valentín"></div>
+              <div class="carrusel-slide"><img src="img/5.jpeg" alt="Ismael Valentín"></div>
+            </div>
+            <button class="car-btn car-prev" onclick="moverCarrusel(-1)">‹</button>
+            <button class="car-btn car-next" onclick="moverCarrusel(1)">›</button>
+            <div class="car-dots" id="carDots">
+              <span class="car-dot active" onclick="irASlide(0)"></span>
+              <span class="car-dot" onclick="irASlide(1)"></span>
+              <span class="car-dot" onclick="irASlide(2)"></span>
+              <span class="car-dot" onclick="irASlide(3)"></span>
+              <span class="car-dot" onclick="irASlide(4)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+      
+
+  <div class="event-card">
+    <div class="event-icon">🎉</div>
+        <h3 class="script-heading">Recepción</h3>
+        <p class="event-time">02:30 PM</p>
+        <p class="event-place">Casa de la Familia Bandi Mendoza</p>
+        <p class="event-address">C. de los Santos 21, Barrio de Canales</p>
+    <a class="btn-location" href="https://maps.app.goo.gl/PSUXHVFbbgkHiGCg7" target="_blank">◈ Ver Ubicación</a>
+    <div class="map-embed">
+      <iframe title="Mapa Cerrito de Santa Cruz" loading="lazy"
+        src="https://www.google.com/maps/embed?pb=!4v1786826943000!6m8!1m7!1sukpuR_-3Spch0FbFgLsvEg!2m2!1d19.37415222914892!2d-99.37349923716738!3f307.2136948480135!4f2.2765728872376343!5f0.7820865974627469"  
+
+          width="100%" height="190" style="border:0;border-radius:12px;display:block;"></iframe>
+    </div>
+  </div>
+</div>
+
+  </section>
+<!--  
+  <section class="section itinerary">
+    <div class="floral-divider"></div>
+    <div class="reveal">
+      <h3 class="script-heading big">Itinerario</h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">☀️</div><div class="tl-content"><span class="tl-time">12:30 PM</span><span class="tl-event">Llegada de invitados</span></div></div>
+        <div class="tl-item"><div class="tl-dot">⛪</div><div class="tl-content"><span class="tl-time">01:00 PM</span><span class="tl-event">Santa Misa</span></div></div>
+        <div class="tl-item"><div class="tl-dot">✝️</div><div class="tl-content"><span class="tl-time">01:15 PM</span><span class="tl-event">Sacramento del Bautismo</span></div></div>
+        <div class="tl-item"><div class="tl-dot">🚗</div><div class="tl-content"><span class="tl-time">02:00 PM</span><span class="tl-event">Traslado a Recepción</span></div></div>
+
+        <div class="tl-item"><div class="tl-dot">🛎️</div><div class="tl-content"><span class="tl-time">02:30 PM</span><span class="tl-event">Recepción</span></div></div>
+        <div class="tl-item"><div class="tl-dot">🍽️</div><div class="tl-content"><span class="tl-time">03:00 PM</span><span class="tl-event">Comida y celebración</span></div></div>
+        <div class="tl-item"><div class="tl-dot">🎶</div><div class="tl-content"><span class="tl-time">05:00 PM</span><span class="tl-event">Convivencia y música</span></div></div>
+        <div class="tl-item"><div class="tl-dot">🎁</div><div class="tl-content"><span class="tl-time">06:00 PM</span><span class="tl-event">Entrega de recuerdos</span></div></div>
+      </div>
+    </div>
+    <div class="floral-divider"></div>
+  </section>
+-->
+  <section class="section gifts">
+    <div class="reveal">
+      <div class="confirm-box" id="attend-section">
+        <div class="event-icon">🙏</div>
+        <h3 class="script-heading">Confirmar asistencia</h3>
+
+        <div id="action-buttons">
+          <p>Por favor confirma tu asistencia<br/>antes del <strong>1 de Diciembre</strong></p>
+          <a class="btn-confirm" onclick="mostrarForm()">🙋 ¡Asistiré con gusto!</a>
+          <br>
+          <a class="btn-confirm ghost" onclick="mostrarNoAsist()" style="margin-top:10px;">😔 No podré asistir</a>
+        </div>
+
+        <form id="confirm-form" class="form-hidden" onsubmit="enviarAsist(event)">
+          <input type="hidden" name="access_key" value="9a7f7564-f9cd-4a7a-baaf-1d45e5948be5">
+          <input type="hidden" name="subject" value="✅ Confirmación Bautizo Ismael Valentín">
+          <p style="margin-bottom:10px;">¿A nombre de quién confirmo?</p>
+          <input type="text" name="nombre_familia" id="nombre_familia" placeholder="Ej: Familia García o Emanuel y familia" required class="input-field">
+          <a class="btn-confirm" id="btn-confirmar" onclick="document.getElementById('confirm-form').requestSubmit()">Confirmar Asistencia ✅</a>
+          <br>
+          <a class="btn-confirm ghost" onclick="cancelarForm()" style="margin-top:10px;">← Volver</a>
+        </form>
+
+        <div id="msg-exito" style="display:none;" class="success-msg">
+          ✝️ ¡Asistencia confirmada!<br>Nos vemos el 19 de Diciembre 💙
+        </div>
+      </div>
+
+      <div id="no-attend-section" style="display:none;" class="confirm-box">
+        <div class="event-icon">🕊️</div>
+        <h3 class="script-heading">¡Te extrañaremos!</h3>
+        <p style="font-style:italic;">"Tu amor y tus oraciones llegan a nosotros sin importar la distancia. Ismael Valentín te lleva en el corazón."</p>
+        <form id="no-confirm-form" onsubmit="enviarNoAsist(event)">
+          <input type="hidden" name="access_key" value="9a7f7564-f9cd-4a7a-baaf-1d45e5948be5">
+          <input type="hidden" name="subject" value="❌ Inasistencia Bautizo Ismael Valentín">
+          <input type="text" name="nombre_inasistencia" placeholder="Ej: Familia García o Emanuel y familia" required class="input-field">
+          <a class="btn-confirm ghost" onclick="document.getElementById('no-confirm-form').requestSubmit()">Confirmar inasistencia</a>
+          <br>
+          <a class="btn-confirm ghost" onclick="regresarAsist()" style="margin-top:10px;">← Volver</a>
+        </form>
+        <div id="msg-exito-no" style="display:none;" class="success-msg">Anotado.<br>Gracias por avisarnos que no asistiras.✉️</div>
+      </div>
+    </div>
+  </section>
+<!-- 
+  <section class="section gifts">
+    <div class="reveal" style="text-align:center">
+      <div class="gift-box">
+        <div class="event-icon">📷</div>
+        <h3 class="script-heading">Álbum de Recuerdos</h3>
+        <p class="gift-text">Comparte las fotos y videos que tomes en este día tan especial. ¡Hagamos juntos el mejor álbum de recuerdos!</p>
+        <a class="btn-confirm" href="album.html" style="display:block;text-align:center;margin-top:0.5rem">✦ Abrir Álbum Compartido</a>
+        <p class="confirm-note" style="margin-top:0.5rem">Sube tus fotos · Ve los momentos de todos los invitados</p>
+      </div>
+    </div>
+  </section>
+-->
+  <section class="section closing">
+    <div class="floral-top"></div>
+    <div class="reveal closing-inner">
+      <h2 class="te-esperamos">¡Te esperamos!</h2>
+  <!--     <div class="foto-cierre">
+        <div class="foto-placeholder tall">
+          <span class="ph-icon">✦</span>
+          <small><img src="img/foto03.jpeg" alt="Ismael Valentín" class="foto-img"></small>
+        </div> 
+      </div>  -->
+      <p class="tu-presencia">Tu presencia y bendiciones harán que este día sea inolvidable.</p>
+      <h2 class="nombre-final">Ismael</h2>
+      <div class="flores-finales">🕊️ ✝️ 🕊️</div>
+    </div>
+    <div class="floral-bottom"></div>
+  </section>
+</div>
+
+<div id="albumModal">
+  <div class="modal-box">
+    <h3>Álbum aún no disponible</h3>
+    <p>El álbum de fotos se habilitará el día del evento para que todos puedan compartir sus recuerdos.</p>
+    <button class="modal-close" onclick="cerrarModal()">Entendido</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body></html>

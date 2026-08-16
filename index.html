@@ -1,13 +1,14 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Bautizo – Ismael</title><link rel="stylesheet" href="style.min.css"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Pacifico&family=Nunito:wght@300;400;600;700;800&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/></head><body>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Bautizo – Ismael </title><link rel="stylesheet" href="style.min.css"/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&family=Pacifico&family=Nunito:wght@300;400;600;700;800&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/></head><body>
 
 <div id="envelope-screen">
   <div class="env-scene">
     <div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div>
     
+    
     <div class="envelope-wrap" id="envelopeWrap">
       <div class="envelope" id="envelope">
         <div class="env-back-flap"></div>
-        <p class="env-top-text">Tienes un mensaje especial ✨</p>
+        <p class="env-top-text">✨Tienes un mensaje especial ✨</p>
         <div class="env-body">
           
           <div class="env-letter" id="envLetter">
@@ -19,11 +20,14 @@
               <p class="lc-date">19 · Diciembre · 2026</p>
             </div>
           </div>
+          
           <div class="env-front-flap" id="envFlap"><div class="flap-diamond"></div></div>
+        
         </div>
       </div>
-      <div class="wax-seal" id="waxSeal"><span>IV</span></div>
+      <div class="wax-seal" id="waxSeal"><span>B</span></div>
     </div>
+
     <p class="env-hint" id="envHint">✦ Toca para abrir ✦</p>
   </div>
 </div>
@@ -114,7 +118,7 @@
           <thead><tr><th>L</th><th>M</th><th>Mi</th><th>J</th><th>V</th><th>S</th><th>D</th></tr></thead>
           <tbody id="cal-body"></tbody>
         </table>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bautizo+de+Ismael+Valent%C3%ADn&dates=20251219T170000Z/20251220T010000Z&details=Sacramento+del+Bautismo.+%E2%9B%AA+Misa%3A+Cerrito+de+Santa+Cruz%2C+Ayotuxco.+%F0%9F%8E%89+Recepci%C3%B3n%3A+C.+de+los+Santos+21%2C+Barrio+de+Canales&location=Cerrito+de+Santa+Cruz%2C+Ayotuxco%2C+Estado+de+M%C3%A9xico&sf=true&output=xml" target="_blank" class="btn-agendar">◈ Añadir al calendario</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bautizo+de+Ismael&dates=20251219T170000Z/20251220T010000Z&details=Sacramento+del+Bautismo.+%E2%9B%AA+Misa%3A+Cerrito+de+Santa+Cruz%2C+Ayotuxco.+%F0%9F%8E%89+Recepci%C3%B3n%3A+C.+de+los+Santos+21%2C+Barrio+de+Canales&location=Cerrito+de+Santa+Cruz%2C+Ayotuxco%2C+Estado+de+M%C3%A9xico&sf=true&output=xml" target="_blank" class="btn-agendar">◈ Añadir al calendario</a>
       </div>
     </div>
     <div class="floral-divider"></div>
@@ -125,7 +129,7 @@
   <div class="event-card">
     <div class="event-icon">⛪</div>
     <h3 class="script-heading">Misa de Bautizo</h3>
-    <p class="event-time">03:00 PM</p>
+    <p class="event-time">02:00 PM</p>
     <p class="event-place">Santuario Del Divino Rostro "El cerrito"</p>
     <p class="event-address">Santa Cruz Ayotuzco, Méx.</p>
     <a class="btn-location" href="https://maps.app.goo.gl/p1TLXevx1Jot5nGLA" target="_blank">◈ Ver Ubicación</a>
@@ -166,7 +170,7 @@
   <div class="event-card">
     <div class="event-icon">🎉</div>
         <h3 class="script-heading">Recepción</h3>
-        <p class="event-time">04:30 PM</p>
+        <p class="event-time">03:30 PM</p>
         <p class="event-place">Casa de la Familia Bandi Mendoza</p>
         <p class="event-address">C. de los Santos 21, Barrio de Canales</p>
     <a class="btn-location" href="https://maps.app.goo.gl/PSUXHVFbbgkHiGCg7" target="_blank">◈ Ver Ubicación</a>
@@ -215,7 +219,7 @@
 
         <form id="confirm-form" class="form-hidden" onsubmit="enviarAsist(event)">
           <input type="hidden" name="access_key" value="9a7f7564-f9cd-4a7a-baaf-1d45e5948be5">
-          <input type="hidden" name="subject" value="✅ Confirmación Bautizo Ismael Valentín">
+          <input type="hidden" name="subject" value="✅ Confirmación Bautizo Ismael">
           <p style="margin-bottom:10px;">¿A nombre de quién confirmo?</p>
           <input type="text" name="nombre_familia" id="nombre_familia" placeholder="Ej: Familia García o Emanuel y familia" required class="input-field">
           <a class="btn-confirm" id="btn-confirmar" onclick="document.getElementById('confirm-form').requestSubmit()">Confirmar Asistencia ✅</a>
@@ -231,10 +235,10 @@
       <div id="no-attend-section" style="display:none;" class="confirm-box">
         <div class="event-icon">🕊️</div>
         <h3 class="script-heading">¡Te extrañaremos!</h3>
-        <p style="font-style:italic;">"Tu amor y tus oraciones llegan a nosotros sin importar la distancia. Ismael Valentín te lleva en el corazón."</p>
+        <p style="font-style:italic;">"Tu amor y tus oraciones llegan a nosotros sin importar la distancia. Ismael te lleva en el corazón."</p>
         <form id="no-confirm-form" onsubmit="enviarNoAsist(event)">
           <input type="hidden" name="access_key" value="9a7f7564-f9cd-4a7a-baaf-1d45e5948be5">
-          <input type="hidden" name="subject" value="❌ Inasistencia Bautizo Ismael Valentín">
+          <input type="hidden" name="subject" value="❌ Inasistencia Bautizo Ismael">
           <input type="text" name="nombre_inasistencia" placeholder="Ej: Familia García o Emanuel y familia" required class="input-field">
           <a class="btn-confirm ghost" onclick="document.getElementById('no-confirm-form').requestSubmit()">Confirmar inasistencia</a>
           <br>
